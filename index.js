@@ -17,6 +17,9 @@ const fuelConsumption = FuelConsumption(db);
 const fuelConsumptionAPI = FuelConsumptionAPI(fuelConsumption)
 
 const app = express();
+
+app.use(express.static('./public', { index: 'index.html' }));
+
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());

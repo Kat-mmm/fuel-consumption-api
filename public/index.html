@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>FUEL CONSUMPTION TRACKER</title>
+</head>
+<body x-data="fuelConsumption">
+    <div class="container">
+        <h1>Fuel Tracker</h1>
+        <div class="nav-links">
+            <a href="/index.html" x-bind:class="{ 'current-page': currentRoute === 'allVehicles' }" x-on:click="setCurrentRoute('allVehicles')">All Vehicles</a>
+            <a href="/addVehicle.html" x-bind:class="{ 'current-page': currentRoute === 'addVehicle' }" x-on:click="setCurrentRoute('addVehicle')">Add Vehicle</a>
+            <a href="/refuelVehicle.html" x-bind:class="{ 'current-page': currentRoute === 'checkConsumption' }" x-on:click="setCurrentRoute('checkConsumption')">Refuel Vehicle</a>
+        </div>
+        
+
+    </div>
+    <div class="all-vehicles">
+        <template x-for="vehicle in allVehicles">
+            <div class="car">
+                <p class="description" >Description: <span x-text="vehicle.description"></span></p>
+                <p class="vehicle-id" >Vehicle id: <span x-text="vehicle.id"></span></p>
+                <p class="distance">Total Distance: <span x-text="vehicle.total_distance"></span></p>
+                <p class="total-fuel">Total Fuel Spend: <span x-text="vehicle.total_amount"></span></p>
+                <p class="fuel-consumption">Fuel Consumption: <span x-text="vehicle.fuel_consumption"></span></p>
+            </div>
+        </template>
+    </div>
+
+    <script src="/javascript/fuel-consumtion-tracker.js"></script>
+</body>
+</html>
